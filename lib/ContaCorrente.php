@@ -5,7 +5,7 @@ class ContaCorrente
     private string $cpf;
     private string $nome;
     private float $saldo;
-    private static int $contasTotais;
+    private static int $contasTotais = 0;
 
     /**
      * @param string $cpf
@@ -17,9 +17,14 @@ class ContaCorrente
         $this->cpf = $cpf;
         $this->nome = $nome;
         $this->saldo = 0.0;
-
         self::$contasTotais++;
     }
+
+    public function __destruct()
+    {
+        self::$contasTotais--;
+    }
+
     /**
      * @return int
      */
@@ -75,21 +80,21 @@ class ContaCorrente
     {
         if ($saldo < 0) {
             echo 'Valor Inválido. Por favor tente novamente.' . PHP_EOL;
-            return ;
+            return;
         }
         $this->saldo = $saldo;
     }
 
     public function __toString(): string
     {
-        return "CPF = $this->cpf \nSeu nome é : $this->nome \nSaldo =  $this->saldo";
+        return "CPF = $this->cpf \nSeu nome é : $this->nome \nSaldo =  $this->saldo\n";
     }
 
     public function depositar(float $valor): void
     {
         if ($valor < 0) {
             echo 'Valor Inválido. Por favor tente novamente.' . PHP_EOL;
-            return ;
+            return;
         }
         $this->saldo += $valor;
     }
