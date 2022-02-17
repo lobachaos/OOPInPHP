@@ -63,6 +63,10 @@ class ContaCorrente
      */
     public function setSaldo(float $saldo): void
     {
+        if ($saldo < 0) {
+            echo 'Valor Inválido. Por favor tente novamente.' . PHP_EOL;
+            return ;
+        }
         $this->saldo = $saldo;
     }
 
@@ -71,9 +75,6 @@ class ContaCorrente
         return "CPF = $this->cpf \nSeu nome é : $this->nome \nSaldo =  $this->saldo";
     }
 
-    /**
-     * @throws Exception
-     */
     public function depositar(float $valor): void
     {
         if ($valor < 0) {
