@@ -5,6 +5,7 @@ class ContaCorrente
     private string $cpf;
     private string $nome;
     private float $saldo;
+    private static int $contasTotais;
 
     /**
      * @param string $cpf
@@ -16,6 +17,15 @@ class ContaCorrente
         $this->cpf = $cpf;
         $this->nome = $nome;
         $this->saldo = 0.0;
+
+        self::$contasTotais++;
+    }
+    /**
+     * @return int
+     */
+    public static function getContasTotais(): int
+    {
+        return self::$contasTotais;
     }
 
     /**
