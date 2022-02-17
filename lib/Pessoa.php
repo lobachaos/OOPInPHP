@@ -2,8 +2,8 @@
 
 class Pessoa
 {
-    private string $nome;
-    private string $cpf;
+    protected string $nome;
+    protected string $cpf;
 
     /**
      * @param string $nome
