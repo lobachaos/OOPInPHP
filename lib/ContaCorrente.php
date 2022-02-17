@@ -4,7 +4,7 @@ class ContaCorrente
 {
     private string $cpf;
     private string $nome;
-    private float $saldo ;
+    private float $saldo;
 
     /**
      * @param string $cpf
@@ -74,14 +74,13 @@ class ContaCorrente
     /**
      * @throws Exception
      */
-    public function depositar(float $valor) : float {
-        if ($valor > 0){
-            $this->saldo += $valor;
-        }else{
-            throw new Exception('Valor inválido !');
+    public function depositar(float $valor): void
+    {
+        if ($valor < 0) {
+            echo 'Valor Inválido. Por favor tente novamente.' . PHP_EOL;
+            return ;
         }
-        echo 'Valor Depositado Com Sucesso ;D' .PHP_EOL ;
-        return $this->saldo;
+        $this->saldo += $valor;
     }
 
 
