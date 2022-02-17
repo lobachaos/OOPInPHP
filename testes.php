@@ -1,12 +1,10 @@
 <?php
 
 require_once __DIR__.'/lib/ContaCorrente.php';
+require_once __DIR__.'/lib/Pessoa.php';
+require_once __DIR__.'/lib/Titular.php';
 
-$conta = new ContaCorrente('123.456.789-10','Samara');
-
-$conta->depositar(-100.0);
-echo $conta;
-
-new ContaCorrente('111.111.111-11','Joazim');
+$cliente = new Titular('Joao','123.456.789-10',new ContaCorrente());
 
 echo ContaCorrente::getContasTotais();
+

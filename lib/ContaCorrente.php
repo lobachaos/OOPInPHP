@@ -2,20 +2,11 @@
 
 class ContaCorrente
 {
-    private string $cpf;
-    private string $nome;
     private float $saldo;
     private static int $contasTotais = 0;
 
-    /**
-     * @param string $cpf
-     * @param string $nome
-     *
-     */
-    public function __construct(string $cpf, string $nome)
+    public function __construct()
     {
-        $this->cpf = $cpf;
-        $this->nome = $nome;
         $this->saldo = 0.0;
         self::$contasTotais++;
     }
@@ -36,34 +27,6 @@ class ContaCorrente
     /**
      * @return string
      */
-    public function getCpf(): string
-    {
-        return $this->cpf;
-    }
-
-    /**
-     * @param string $cpf
-     */
-    public function setCpf(string $cpf): void
-    {
-        $this->cpf = $cpf;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNome(): string
-    {
-        return $this->nome;
-    }
-
-    /**
-     * @param string $nome
-     */
-    public function setNome(string $nome): void
-    {
-        $this->nome = $nome;
-    }
 
     /**
      * @return float
@@ -83,11 +46,6 @@ class ContaCorrente
             return;
         }
         $this->saldo = $saldo;
-    }
-
-    public function __toString(): string
-    {
-        return "CPF = $this->cpf \nSeu nome é : $this->nome \nSaldo =  $this->saldo\n";
     }
 
     public function depositar(float $valor): void
