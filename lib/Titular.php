@@ -2,21 +2,12 @@
 
 class Titular extends Pessoa
 {
-    private ContaCorrente $conta;
+    private string $endereco;
 
-    public function __construct(string $nome, string $cpf, ContaCorrente $conta)
+    public function __construct(string $nome, string $cpf, string $endereco)
     {
-        parent::__construct($nome,$cpf);
-        $this->conta = $conta;
+        parent::__construct($nome, $cpf);
+        $this->$endereco = $endereco;
     }
-
-    /**
-     * @return ContaCorrente
-     */
-    public function getConta(): ContaCorrente
-    {
-        return $this->conta;
-    }
-
 
 }

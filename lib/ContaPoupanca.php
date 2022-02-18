@@ -1,11 +1,10 @@
 <?php
 
-class ContaCorrente extends Conta
-
+class ContaPoupanca extends Conta
 {
 
     protected function tarifaSaque() : float
     {
-        return 0.05;
+        return 0.03;
     }
 }
